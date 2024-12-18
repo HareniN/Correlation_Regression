@@ -24,8 +24,8 @@ If y represents the dependent variable and x the independent variable, this rela
 # Program :
 
 ```
-Name: Janani Gowrisankar
-Register number : 24009971
+Name: Prathikshaa
+Register number : 24007902
 
 import numpy as np
 import math
