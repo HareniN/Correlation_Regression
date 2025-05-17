@@ -24,48 +24,47 @@ If y represents the dependent variable and x the independent variable, this rela
 # Program :
 
 ```
-Name: Janani Gowrisankar
-Register number : 24009971
-
-import numpy as np
-import math
-import matplotlib.pyplot as plt
-x=[ int(i) for i in input().split()]
-y=[ int(i) for i in input().split()]
-N=len(x)
-Sx=0
-Sy=0
-Sxy=0
-Sx2=0
-Sy2=0
-for i in range(0,N):
-    Sx=Sx+x[i]
-    Sy=Sy+y[i]
-    Sxy=Sxy+x[i]*y[i]
-    Sx2=Sx2+x[i]**2
-    Sy2=Sy2+y[i]**2
-r=(N*Sxy-Sx*Sy)/(math.sqrt(N*Sx2-Sx**2)*math.sqrt(N*Sy2-Sy**2))
-print("The Correlation coefficient is %0.3f"%r)
-byx=(N*Sxy-Sx*Sy)/(N*Sx2-Sx**2)
-xmean=Sx/N
-ymean=Sy/N
-print("The Regression line Y on X is ::: y = %0.3f + %0.3f (x-%0.3f)"%(ymean,byx,xmean))
-plt.scatter(x,y)
-def Reg(x):
-  return ymean + byx*(x-xmean)
-x=np.linspace(20,80,51)
-y1=Reg(x)
-plt.plot(x,y1,'r')
-plt.xlabel('x-data')
-plt.ylabel('y-data')
-plt.legend(['Regression Line','Data points'])
-
+import numpy as np 
+import math 
+import matplotlib.pyplot as plt 
+x=[ int(i) for i in input().split()] 
+y=[ int(i) for i in input().split()] 
+N=len(x) 
+Sx=0 
+Sy=0 
+Sxy=0 
+Sx2=0 
+Sy2=0 
+for i in range(0,N): 
+    Sx=Sx+x[i] 
+    Sy=Sy+y[i] 
+    Sxy=Sxy+x[i]*y[i] 
+    Sx2=Sx2+x[i]**2 
+    Sy2=Sy2+y[i]**2 
+if (N * Sx2 - Sx**2) * (N * Sy2 - Sy**2) == 0: 
+    print("Correlation coefficient is undefined for a single data point.") 
+    r = float('nan')  # Assign NaN to r if denominator is zero 
+else: 
+    r = (N * Sxy - Sx * Sy) / (math.sqrt(N * Sx2 - Sx**2) * math.sqrt(N * Sy2 - Sy**2)) 
+    print("The correlation coefficient is % 0.3f" % r) 
+byx=(N*Sxy-Sx*Sy)/(N*Sx2-Sx**2) 
+xmean=Sx/N 
+ymean=Sy/N 
+print("The regression line Y on X is:::y= %.3f + %.3f(x- 3%.3f)"%(ymean,byx,xmean)) 
+plt.scatter(x,y) 
+def Reg(x): 
+    return ymean+byx*(x-xmean) 
+x=np.linspace(20,80,51) 
+y1=Reg(x) 
+plt.plot(x,y1, 'r') 
+plt.xlabel('X') 
+plt.ylabel('Y') 
+plt.legend(['Regression Line', 'Data points'])
 ```
 
 # Output 
+![maths ex3](https://github.com/user-attachments/assets/46f9f07c-c915-4956-a742-c05049121c28)
 
-
-![image](https://github.com/user-attachments/assets/3ff8bbb0-97fe-419a-ac72-e62efb33e367)
 
 # Result
 
